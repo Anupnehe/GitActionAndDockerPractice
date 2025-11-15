@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker CI + Selenium + Maven + Push
 
 on:
   push:
@@ -7,18 +7,25 @@ on:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    # 1️⃣ Checkout code
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-    - name: Build the Docker image
-      run: docker build -t gitactions_practice:latest .
+    # 2️⃣ Build Docker image with your Docker Hub username
+    - name: Build Docker image
+      run: docker build -t anupnehe9545/gitactions_practice:latest .
 
-    - name: Push the Docker Image
+    # 3️⃣ Run Selenium + TestNG tests inside Docker
+    - name: Run tests inside Docker
+      run: docker run --rm anupnehe9545/gitactions_practice:latest
+
+    # 4️⃣ Push Docker image to Docker Hub (only if tests pass)
+    - name: Push Docker image
+      if: success()  # Only run if previous steps succeed
       run: |
         docker login -u anupnehe9545 -p ${{ secrets.DOCKER_HUB_TOKEN }}
         docker push anupnehe9545/gitactions_practice:latest
