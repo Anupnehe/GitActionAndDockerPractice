@@ -16,4 +16,9 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Build the Docker image
-      run: docker build -t selenium-testng-runner .
+      run: docker build -t GitActions_Practice:latest
+      
+    - name: Push the Docker Image
+      run: 
+      docker login -u anupnehe9545 -p ${{secrates.DOCKER_HUB_TOKEN}}
+      docker push GitActions_Practice:latest
