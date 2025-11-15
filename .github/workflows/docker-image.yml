@@ -21,4 +21,4 @@ jobs:
     - name: Push the Docker Image
       run: |
         docker login -u anupnehe9545 -p ${{ secrets.DOCKER_HUB_TOKEN }}
-        docker push GitActions_Practice:latest
+        docker push gitactions_practice:latest
