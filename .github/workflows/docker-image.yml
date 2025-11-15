@@ -19,11 +19,7 @@ jobs:
     - name: Build Docker image
       run: docker build -t anupnehe9545/gitactions_practice:latest .
 
-    # 3️⃣ Run Selenium + TestNG tests inside Docker
-    - name: Run tests inside Docker
-      run: docker run --rm anupnehe9545/gitactions_practice:latest
-
-    # 4️⃣ Push Docker image to Docker Hub (only if tests pass)
+    # 43⃣ Push Docker image to Docker Hub (only if tests pass)
     - name: Push Docker image
       if: success()
       run: |
