@@ -16,7 +16,7 @@ RUN mvn clean test -DskipTests=false
 
 # =================================
 #  STAGE 2: Runtime with Selenium
-# =================================
+# ===============================
 FROM eclipse-temurin:17-jdk
 
 # Install dependencies
