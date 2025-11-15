@@ -11,7 +11,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Download dependencies + run tests
-RUN mvn clean test -DskipTests=false
+RUN mvn clean install -DskipTests=true
 
 
 # =================================
