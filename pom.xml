@@ -49,6 +49,8 @@
         </configuration>
       </plugin>
 
+
+
       <!-- Needed for TestNG reports -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
