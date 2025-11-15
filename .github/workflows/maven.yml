@@ -5,10 +5,15 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select environment"
+        required: true
+        default: "dev"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
